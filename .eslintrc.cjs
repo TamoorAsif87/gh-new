@@ -16,7 +16,6 @@ module.exports = {
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
-    "plugin:vitest/recommended",
   ],
   plugins: ["react"],
   settings: {
@@ -24,4 +23,20 @@ module.exports = {
       version: "detect",
     },
   },
+  rules: {
+    "react/react-in-jsx-scope": "off",
+  },
+  overrides: [
+    {
+      files: ["**/*.test.jsx", "**/*.test.js"],
+      globals: {
+        describe: "readonly",
+        it: "readonly",
+        expect: "readonly",
+        beforeEach: "readonly",
+        afterEach: "readonly",
+        vi: "readonly",
+      },
+    },
+  ],
 };
